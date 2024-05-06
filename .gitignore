@@ -1,0 +1,9 @@
+.idea/
+.vscode/
+node_modules/
+coverage/
+dist/
+.npmrc
+packages/*/index.js
+packages/*/index.js.map
+packages/*/index.d.ts

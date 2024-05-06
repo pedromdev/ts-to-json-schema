@@ -1,0 +1,20 @@
+{
+  "name": "@ts-to-json-schema/common",
+  "version": "0.0.0-PLACEHOLDER",
+  "description": "Convert TypeScript interfaces to JSON Schema",
+  "author": "Pedro Marcelo <pedro.marcelo@aprova.com.br>",
+  "homepage": "",
+  "license": "ISC",
+  "main": "index.js",
+  "typings": "index.d.ts",
+  "scripts": {
+    "prebuild": "rm -f index.d.ts index.js index.js.map",
+    "build": "webpack",
+    "build:dev": "yarn build --mode development",
+    "build:prod": "yarn build --mode production",
+    "watch": "npm run build -- --watch"
+  },
+  "peerDependencies": {
+    "@ts-to-json-schema/core": "0.0.0-PLACEHOLDER"
+  }
+}

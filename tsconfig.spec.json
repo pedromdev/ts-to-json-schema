@@ -1,0 +1,11 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "strict": true,
+    "plugins": [
+      { "transform": "@ts-to-json-schema/compiler", "type": "program", "cacheBetweenTests": false }
+    ]
+  },
+  "include": ["tests/**/*.ts"],
+  "exclude": ["node_modules"]
+}
