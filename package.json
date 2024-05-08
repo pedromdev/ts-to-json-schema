@@ -1,5 +1,5 @@
 {
-  "private": true,
+  "private": false,
   "name": "ts-to-json-schema",
   "version": "1.0.0",
   "license": "MIT",
@@ -31,5 +31,9 @@
   },
   "workspaces": [
     "packages/*"
-  ]
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
 }
