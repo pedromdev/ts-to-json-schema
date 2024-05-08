@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Type transformer for TypeScript to JSON Schema",
   "author": "Pedro Marcelo <pedromarcelodesaalves@gmail.com>",
-  "homepage": "",
+  "homepage": "https://github.com/pedromdev/ts-to-json-schema",
   "license": "MIT",
   "main": "index.js",
   "typings": "index.d.ts",
