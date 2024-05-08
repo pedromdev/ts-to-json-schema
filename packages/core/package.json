@@ -1,6 +1,6 @@
 {
   "name": "@ts-to-json-schema/core",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Core functions for TypeScript to JSON Schema",
   "author": "Pedro Marcelo <pedromarcelodesaalves@gmail.com>",
   "homepage": "https://github.com/pedromdev/ts-to-json-schema",
