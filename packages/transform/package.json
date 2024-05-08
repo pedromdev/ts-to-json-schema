@@ -1,22 +1,31 @@
 {
-  "name": "@ts-to-json-schema/compiler",
-  "version": "0.0.0-PLACEHOLDER",
-  "description": "Compiler for TypeScript to JSON Schema",
+  "name": "@ts-to-json-schema/transform",
+  "version": "1.0.0",
+  "description": "Type transformer for TypeScript to JSON Schema",
   "author": "Pedro Marcelo <pedromarcelodesaalves@gmail.com>",
   "homepage": "",
   "license": "MIT",
   "main": "index.js",
   "typings": "index.d.ts",
   "type": "commonjs",
+  "keywords": [
+    "typescript",
+    "json",
+    "schema",
+    "json-schema",
+    "transform",
+    "ts",
+    "type",
+    "compiler"
+  ],
   "scripts": {
     "prebuild": "rm -f index.d.ts index.js index.js.map",
     "build": "webpack",
-    "build:tsc": "tsc",
     "build:dev": "yarn build --mode development",
     "build:prod": "yarn build --mode production"
   },
   "peerDependencies": {
-    "@ts-to-json-schema/core": "0.0.0-PLACEHOLDER",
+    "@ts-to-json-schema/types": "1.0.0",
     "ts-patch": "^3.1.2",
     "typescript": "^5.4.5"
   }

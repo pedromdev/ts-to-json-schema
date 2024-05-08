@@ -4,7 +4,7 @@ module.exports = {
   testEnvironment: 'node',
   cache: false,
   moduleDirectories: ['node_modules', 'packages'],
-  collectCoverageFrom: ['packages/compiler/**/*.ts'],
+  collectCoverageFrom: ['packages/transform/**/*.ts'],
   coveragePathIgnorePatterns: ['packages/.*/dist/'],
   transform: {
     '^.+\\.spec\\.tsx?$': [

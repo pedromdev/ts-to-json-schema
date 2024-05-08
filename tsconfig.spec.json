@@ -3,7 +3,7 @@
   "compilerOptions": {
     "strict": true,
     "plugins": [
-      { "transform": "@ts-to-json-schema/compiler", "type": "program", "cacheBetweenTests": false }
+      { "transform": "@ts-to-json-schema/transform", "type": "program", "cacheBetweenTests": false }
     ]
   },
   "include": ["tests/**/*.ts"],

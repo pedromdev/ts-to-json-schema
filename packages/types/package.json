@@ -1,29 +1,16 @@
 {
-  "name": "@ts-to-json-schema/core",
+  "name": "@ts-to-json-schema/types",
   "version": "1.0.0",
-  "description": "Core functions for TypeScript to JSON Schema",
+  "description": "Types for TypeScript to JSON Schema",
   "author": "Pedro Marcelo <pedromarcelodesaalves@gmail.com>",
   "homepage": "",
-  "license": "ISC",
+  "license": "MIT",
   "main": "index.js",
   "typings": "index.d.ts",
-  "keywords": [
-    "typescript",
-    "json",
-    "schema",
-    "json-schema",
-    "transform",
-    "ts",
-    "type",
-    "compiler"
-  ],
   "scripts": {
     "prebuild": "rm -f index.d.ts index.js index.js.map",
     "build": "webpack",
     "build:dev": "yarn build --mode development",
     "build:prod": "yarn build --mode production"
-  },
-  "peerDependencies": {
-    "@ts-to-json-schema/types": "1.0.0"
   }
 }
