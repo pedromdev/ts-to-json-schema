@@ -10,7 +10,9 @@
     "build:prod": "lerna run build:prod",
     "test": "jest",
     "test:watch": "yarn test --watchAll",
-    "test:coverage": "yarn test --coverage"
+    "test:coverage": "yarn test --coverage",
+    "prepublish": "yarn build:prod",
+    "publish": "lerna publish --no-private"
   },
   "devDependencies": {
     "@types/jest": "^29.5.12",
