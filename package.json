@@ -12,7 +12,7 @@
     "test:watch": "yarn test --watchAll",
     "test:coverage": "yarn test --coverage",
     "prepublish": "yarn build:prod",
-    "publish": "lerna publish --no-private"
+    "publish": "lerna publish from-package"
   },
   "devDependencies": {
     "@types/jest": "^29.5.12",
