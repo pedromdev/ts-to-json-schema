@@ -30,7 +30,7 @@
     "build:dev": "yarn build --mode development",
     "build:prod": "yarn build --mode production"
   },
-  "peerDependencies": {
-    "@ts-to-json-schema/types": "1.0.0"
+  "devDependencies": {
+    "@ts-to-json-schema/types": "1.0.2"
   }
 }
