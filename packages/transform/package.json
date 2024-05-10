@@ -3,12 +3,17 @@
   "version": "1.0.2",
   "description": "Type transformer for TypeScript to JSON Schema",
   "author": "Pedro Marcelo <pedromarcelodesaalves@gmail.com>",
-  "homepage": "https://github.com/pedromdev/ts-to-json-schema",
-  "bugs": "https://github.com/pedromdev/ts-to-json-schema/issues",
   "license": "MIT",
   "main": "index.js",
   "typings": "index.d.ts",
-  "type": "commonjs",
+  "homepage": "https://github.com/pedromdev/ts-to-json-schema",
+  "bugs": {
+    "url": "https://github.com/pedromdev/ts-to-json-schema/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pedromdev/ts-to-json-schema.git"
+  },
   "keywords": [
     "typescript",
     "json",

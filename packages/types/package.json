@@ -3,11 +3,17 @@
   "version": "1.0.2",
   "description": "Types for TypeScript to JSON Schema",
   "author": "Pedro Marcelo <pedromarcelodesaalves@gmail.com>",
-  "homepage": "https://github.com/pedromdev/ts-to-json-schema",
-  "bugs": "https://github.com/pedromdev/ts-to-json-schema/issues",
   "license": "MIT",
   "main": "index.js",
   "typings": "index.d.ts",
+  "homepage": "https://github.com/pedromdev/ts-to-json-schema",
+  "bugs": {
+    "url": "https://github.com/pedromdev/ts-to-json-schema/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pedromdev/ts-to-json-schema.git"
+  },
   "scripts": {
     "prebuild": "rm -f index.d.ts index.js index.js.map",
     "build": "webpack",
