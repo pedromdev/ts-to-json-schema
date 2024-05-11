@@ -11,7 +11,8 @@
     "test": "jest",
     "test:watch": "yarn test --watchAll",
     "test:coverage": "yarn test --coverage",
-    "prepublish-packages": "yarn build:prod && lerna version --no-private",
+    "new:version": "lerna version --conventional-commits --exact --no-private",
+    "prepublish-packages": "yarn build:prod && yarn new:version",
     "publish-packages": "lerna publish from-package"
   },
   "devDependencies": {
