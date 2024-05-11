@@ -22,7 +22,7 @@ npm install --save-dev typescript @ts-to-json-schema/transform ts-patch
 }
 ```
 
-**Obs:** Follow the instructions in the [@ts-to-json-schema/transform](../transform/README.md) to configure in your bundler.
+**Obs:** Follow the instructions in the [@ts-to-json-schema/transform](https://www.npmjs.com/package/@ts-to-json-schema/transform) to configure in your bundler.
 
 ## Usage
 
