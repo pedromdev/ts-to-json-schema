@@ -5,7 +5,7 @@
 ## Installation
 
 ```shell
-npm install --save-dev typescript ts-patch @ts-to-json-schema/transform
+npm install --save-dev typescript @ts-to-json-schema/transform
 ```
 
 ## Configuration
