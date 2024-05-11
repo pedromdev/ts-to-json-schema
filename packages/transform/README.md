@@ -10,21 +10,56 @@ npm install --save-dev typescript ts-patch @ts-to-json-schema/transform
 
 ## Configuration
 
-### Basic configuration (tsconfig.json)
+### TypeScript Compiler API
+
+```typescript
+import * as ts from 'typescript';
+import transform from '@ts-to-json-schema/transform';
+
+const program = ts.createProgram(['./index.ts'], compilerOptions);
+const sourceFiles = program.getSourceFiles();
+const compilerOptions = {
+  lib: ["es2015"],
+  strict: true,
+};
+
+for (const sourceFile of sourceFiles) {
+  const transformedSourceFile = ts.transform(
+    sourceFile,
+    [transform(program)],
+    compilerOptions
+  );
+  const result = ts.createPrinter().printNode(
+    ts.EmitHint.Unspecified,
+    transformedSourceFile.transformed[0],
+    sourceFile
+  );
+
+  console.log(result);
+}
+```
+
+### TS Patch
+
+Install `ts-patch` package:
+
+```shell
+npm install --save-dev ts-patch
+```
+
+Follow the instructions in the [TS Patch](https://www.npmjs.com/package/ts-patch) documentation 
+to configure `@ts-to-json-schema/transform` plugin. You need to enable `strict` mode too. 
 
 ```json
 {
   "compilerOptions": {
-    // ...
-    "strict": true, // Strict mode is required
+    "strict": true,
     "plugins": [
       { "transform": "@ts-to-json-schema/transform", "type": "program" }
     ]
   }
 }
 ```
-
-### Bundlers/Runners
 
 #### Change TypeScript compiler (TSC) to TS Patch (TSPC)
 
@@ -60,3 +95,7 @@ module.exports = {
   }
 };
 ```
+
+### ESBuild 
+
+Follow the instructions in the [ESBuild plugin](https://www.npmjs.com/package/@ts-to-json-schema/esbuild-plugin) documentation.
