@@ -1,13 +1,14 @@
+const defaultsDeep = require('lodash.defaultsdeep');
 const path = require('path');
 const DtsBundleWebpack = require('dts-bundle-webpack');
 const nodeExternals = require('webpack-node-externals');
 
 const root = path.resolve(__dirname, '..');
 
-module.exports = function webpackConfigFactory(libname, dirname) {
+module.exports = function webpackConfigFactory(libname, dirname, config = {}) {
   return function (env, argv) {
-    return {
-      entry: './src/index.ts',
+    return defaultsDeep(config, {
+      entry: path.resolve(dirname, 'src/index.ts'),
       devtool: argv.mode !== 'production' ? 'inline-source-map' : false,
       output: {
         filename: 'index.js',
@@ -43,7 +44,7 @@ module.exports = function webpackConfigFactory(libname, dirname) {
           removeSource: true
         }),
       ]
-    };
+    });
   }
 }
 

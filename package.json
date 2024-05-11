@@ -17,9 +17,12 @@
   "devDependencies": {
     "@types/jest": "^29.5.12",
     "@types/node": "18.19.31",
+    "@types/lodash.defaultsdeep": "^4.6.9",
     "dts-bundle-webpack": "^1.0.2",
+    "esbuild": "^0.21.1",
     "jest": "^29.7.0",
     "lerna": "^6.4.1",
+    "lodash.defaultsdeep": "^4.6.1",
     "ts-jest": "^29.1.2",
     "ts-loader": "^9.5.1",
     "ts-node": "^10.9.2",

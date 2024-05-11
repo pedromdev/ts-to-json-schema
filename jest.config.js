@@ -4,7 +4,7 @@ module.exports = {
   testEnvironment: 'node',
   cache: false,
   moduleDirectories: ['node_modules', 'packages'],
-  collectCoverageFrom: ['packages/transform/**/*.ts'],
+  collectCoverageFrom: ['packages/transform/**/*.ts', 'packages/esbuild-plugin/**/*.ts'],
   coveragePathIgnorePatterns: ['packages/.*/dist/'],
   transform: {
     '^.+\\.spec\\.tsx?$': [

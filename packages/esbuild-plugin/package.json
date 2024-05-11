@@ -1,0 +1,42 @@
+{
+  "name": "@ts-to-json-schema/esbuild-plugin",
+  "version": "1.0.2",
+  "description": "ESBuild plugin for TypeScript to JSON Schema",
+  "author": "Pedro Marcelo <pedromarcelodesaalves@gmail.com>",
+  "license": "MIT",
+  "main": "index.js",
+  "typings": "index.d.ts",
+  "homepage": "https://github.com/pedromdev/ts-to-json-schema",
+  "bugs": {
+    "url": "https://github.com/pedromdev/ts-to-json-schema/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pedromdev/ts-to-json-schema.git"
+  },
+  "keywords": [
+    "typescript",
+    "json",
+    "schema",
+    "json-schema",
+    "transform",
+    "ts",
+    "type",
+    "esbuild",
+    "plugin"
+  ],
+  "scripts": {
+    "prebuild": "rm -f index.d.ts index.js index.js.map",
+    "build": "webpack",
+    "build:dev": "yarn build --mode development",
+    "build:prod": "yarn build --mode production"
+  },
+  "devDependencies": {
+    "@types/node": "^18.15.3"
+  },
+  "peerDependencies": {
+    "@ts-to-json-schema/transform": "1.0.2",
+    "esbuild": "^0.21.1",
+    "typescript": "^4.0.0 || ^5.0.0"
+  }
+}
