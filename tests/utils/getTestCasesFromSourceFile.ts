@@ -1,6 +1,6 @@
 import * as path from "node:path";
 import * as ts from "typescript";
-import compiler from "../../packages/transform/src";
+import transport from "../../packages/transform/src";
 
 export function getTestCasesFromSourceFile(fileName: string) {
   const compilerOptions = {
@@ -14,7 +14,7 @@ export function getTestCasesFromSourceFile(fileName: string) {
   const sourceFile = program.getSourceFiles().find((sourceFile) => sourceFile.fileName.includes(samplePath));
   const transformedSourceFile = ts.transform(
     sourceFile!,
-    [compiler(program)],
+    [transport(program)],
     compilerOptions
   );
   const result = ts.createPrinter().printNode(
