@@ -15,7 +15,7 @@ export class ExpressionBuilder {
       return value ? ts.factory.createTrue() : ts.factory.createFalse();
     } else if (Array.isArray(value)) {
       return ts.factory.createArrayLiteralExpression(value.map(v => this.build(v)));
-    } else if (typeof value === 'object') {
+    } else if (typeof value === 'object' && value !== null) {
       const properties = Object.keys(value)
         .filter((key) => value[key] !== undefined)
         .map((key) => {
