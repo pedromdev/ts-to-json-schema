@@ -1,6 +1,7 @@
 import { JsonSchema } from "@ts-to-json-schema/types";
 import * as ts from "typescript";
 import { AbstractTransformHandler } from "./abstract-transform.handler";
+import { CycleResolver } from "../cycle.resolver";
 
 export class DateHandler extends AbstractTransformHandler {
   shouldTransform(type: ts.Type): boolean {
@@ -8,9 +9,9 @@ export class DateHandler extends AbstractTransformHandler {
   }
 
   transform(type: ts.Type): JsonSchema {
-    return {
+    return CycleResolver.ignore({
       type: "string",
       format: "date-time",
-    };
+    });
   }
 }

@@ -1,6 +1,7 @@
 import { JsonSchema } from "@ts-to-json-schema/types";
 import * as ts from 'typescript';
 import { AbstractTransformHandler } from "./abstract-transform.handler";
+import { CycleResolver } from "../cycle.resolver";
 
 export class NullHandler extends AbstractTransformHandler {
   shouldTransform(type: ts.Type): boolean {
@@ -8,6 +9,6 @@ export class NullHandler extends AbstractTransformHandler {
   }
 
   transform(type: ts.Type): JsonSchema {
-    return {type: 'null'};
+    return CycleResolver.ignore({type: 'null'});
   }
 }

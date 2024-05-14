@@ -1,6 +1,7 @@
 import { JsonSchema } from "@ts-to-json-schema/types";
 import * as ts from 'typescript';
 import { AbstractTransformHandler } from "./abstract-transform.handler";
+import { CycleResolver } from "../cycle.resolver";
 
 export class EnumLikeHandler extends AbstractTransformHandler {
   shouldTransform(type: ts.Type): boolean {
@@ -11,12 +12,12 @@ export class EnumLikeHandler extends AbstractTransformHandler {
     const values = this.getValues(type);
 
     if (values.every((value) => typeof value === 'string')) {
-      return { type: 'string', enum: values };
+      return CycleResolver.ignore({ type: 'string', enum: values });
     } else if (values.every((value) => typeof value === 'number')) {
-      return { type: 'number', enum: values };
+      return CycleResolver.ignore({ type: 'number', enum: values });
     }
 
-    return { enum: values };
+    return CycleResolver.ignore({ enum: values });
   }
 
   private getValues(type: ts.Type) {
