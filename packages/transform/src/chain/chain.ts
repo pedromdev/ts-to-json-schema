@@ -1,4 +1,4 @@
-import { Type } from "@ts-to-json-schema/types";
+import { Class } from "@ts-to-json-schema/types";
 import { StringHandler } from "./string.handler";
 import { NumberHandler } from "./number.handler";
 import { BooleanHandler } from "./boolean.handler";
@@ -12,7 +12,7 @@ import { NullHandler } from "./null.handler";
 import { DateHandler } from "./date.handler";
 import { AnyHandler } from "./any.handler";
 
-export type TransformChain = Type<AbstractTransformHandler>[];
+export type TransformChain = Class<AbstractTransformHandler>[];
 
 export const transformChain: TransformChain = [
   AnyHandler,
