@@ -1,10 +1,12 @@
-import { JsonSchema } from "@ts-to-json-schema/types";
+import { JsonSchema, Type } from "@ts-to-json-schema/types";
 import * as ts from 'typescript';
 import { AbstractTransformHandler } from "./abstract-transform.handler";
 
 type PropertyEntry = [string, ts.Symbol];
 
 export class ClassOrObjectHandler extends AbstractTransformHandler {
+  private readonly typesCache = new Map<number, JsonSchema>();
+
   shouldTransform(type: ts.Type): boolean {
     return !!(
       (type.flags & ts.TypeFlags.Object)
@@ -13,16 +15,30 @@ export class ClassOrObjectHandler extends AbstractTransformHandler {
     );
   }
 
-  transform(type: ts.Type): JsonSchema {
+  transform(type: Type): JsonSchema {
+    const cached = this.typesCache.get(type.id!);
+
+    if (cached) {
+      return cached;
+    }
+
+    const schema: JsonSchema = { type: 'object' };
+
+    this.typesCache.set(type.id!, schema);
+
     const propertiesEntries = this.getPropertiesEntries(type);
     const properties = this.getProperties(propertiesEntries);
     const required = this.getRequiredList(propertiesEntries);
 
-    return {
-      type: 'object',
-      properties: Object.keys(properties).length ? properties : undefined,
-      required: required.length ? required : undefined,
-    };
+    if (Object.keys(properties).length) {
+      schema.properties = properties;
+    }
+
+    if (required.length) {
+      schema.required = required;
+    }
+
+    return schema;
   }
 
   private getPropertiesEntries(type: ts.Type): PropertyEntry[] {
