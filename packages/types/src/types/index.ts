@@ -1,2 +1,3 @@
+export * from './class';
 export * from './json-schema';
-export * from './type';
+export * from './typescript';
