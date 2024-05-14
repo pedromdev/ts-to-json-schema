@@ -2,6 +2,7 @@ import * as ts from "typescript";
 import { ExpressionBuilder } from "./expression.builder";
 import { SchemaTransformer } from "./schema.transformer";
 import { transformChain } from "./chain/chain";
+import { CycleResolver } from "./cycle.resolver";
 
 export class Visitor {
   constructor(
@@ -51,7 +52,8 @@ export class Visitor {
     const transformer = new SchemaTransformer(this.typeChecker, typeArgument, transformChain);
     const type = this.typeChecker.getTypeAtLocation(typeArgument);
     const schema = transformer.transform(type);
-    const expression = ExpressionBuilder.build(schema);
+    const resolvedCyclesSchema = CycleResolver.parse(schema);
+    const expression = ExpressionBuilder.build(resolvedCyclesSchema);
     const newCallExpression = ts.factory.createCallExpression(
       node.expression,
       undefined,
