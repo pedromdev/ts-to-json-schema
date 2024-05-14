@@ -1,6 +1,6 @@
 {
   "name": "@ts-to-json-schema/types",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Types for TypeScript to JSON Schema",
   "author": "Pedro Marcelo <pedromarcelodesaalves@gmail.com>",
   "license": "MIT",
