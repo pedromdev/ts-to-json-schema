@@ -24,9 +24,8 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - uses: Borales/actions-yarn@v5
-      - run: yarn install
-      - run: yarn start
-      - run: yarn install typescript@${{ matrix.typescript-version }}
-      - run: yarn build:prod
-      - run: yarn test
+      - run: npm install
+      - run: npm run start
+      - run: npm install typescript@${{ matrix.typescript-version }}
+      - run: npm run build:prod
+      - run: npm run test
