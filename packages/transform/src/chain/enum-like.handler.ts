@@ -32,13 +32,21 @@ export class EnumLikeHandler extends AbstractTransformHandler {
   }
 
   private parseUnionValues(type: ts.UnionType) {
-    return type.types.map((t) => JSON.parse(this.transformer.typeChecker.typeToString(t)));
+    return type.types.filter((t) => !(t.flags & ts.TypeFlags.Undefined)).map((t) => {
+      const enumMember = t.getSymbol()?.valueDeclaration;
+
+      if (enumMember && ts.isEnumMember(enumMember)) {
+        return this.transformer.typeChecker.getConstantValue(enumMember);
+      }
+
+      return JSON.parse(this.transformer.typeChecker.typeToString(t));
+    });
   }
 
   private isUnionLikeEnum(type: ts.Type): type is ts.UnionType {
     try {
       if (!(type.flags & ts.TypeFlags.EnumLike) && type.flags & ts.TypeFlags.Union) {
-        return (<ts.UnionType>type).types.every(
+        return (<ts.UnionType>type).types.filter((t) => !(t.flags & ts.TypeFlags.Undefined)).every(
           (t) => !!(t.flags & ts.TypeFlags.StringLike || t.flags & ts.TypeFlags.NumberLike)
         ) && !!this.parseUnionValues(<ts.UnionType>type);
       }

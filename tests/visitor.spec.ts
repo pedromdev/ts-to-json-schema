@@ -41,6 +41,7 @@ describe('Visitor', () => {
         stringEnum: { type: 'string', enum: ['A', 'B', 'C'] },
         mixedEnum: { enum: [1, 'B', 3] },
         question: { type: 'string', enum: ['yes', 'no'] },
+        question2: { type: 'string', enum: ['yes', 'no'] },
         order: { type: 'number', enum: [0, 1, -1] },
         array: { type: 'array', items: { type: 'string' } },
         union: { anyOf: [{ type: 'string' }, { type: 'number' }, { type: 'boolean' }, { type: 'null' }] },
@@ -64,7 +65,7 @@ describe('Visitor', () => {
         },
         anyValue: {}
       },
-      required: ['name', 'isDeveloper', 'createdAt', 'enum', 'stringEnum', 'mixedEnum', 'question', 'order', 'array', 'union', 'intersection', 'anyValue']
+      required: ['name', 'isDeveloper', 'createdAt', 'stringEnum', 'question2', 'order', 'array', 'union', 'intersection', 'anyValue']
     });
   });
 });

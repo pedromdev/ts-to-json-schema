@@ -23,10 +23,11 @@ interface Sample {
   age?: number;
   isDeveloper: boolean;
   createdAt: Date;
-  enum: SampleEnum;
+  enum?: SampleEnum;
   stringEnum: SampleStringEnum;
-  mixedEnum: SampleMixedEnum;
-  question: 'yes' | 'no';
+  mixedEnum?: SampleMixedEnum;
+  question?: 'yes' | 'no';
+  question2: 'yes' | 'no';
   order: -1 | 0 | 1;
   array: string[];
   union: string | number | boolean | null;
