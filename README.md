@@ -16,5 +16,4 @@ Follow the instructions in the [@ts-to-json-schema/core](/packages/core/README.m
 
 ## Next Steps
 
-- Handle recursive types
 - Increase tests
