@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.1](https://github.com/pedromdev/ts-to-json-schema/compare/v1.2.0...v1.2.1) (2024-06-02)
+
+
+### Bug Fixes
+
+* optional enums ([10ec273](https://github.com/pedromdev/ts-to-json-schema/commit/10ec27324a69d667487c321efb8505f566a057c1))
+
+
+
+
+
 # [1.2.0](https://github.com/pedromdev/ts-to-json-schema/compare/v1.1.1...v1.2.0) (2024-05-14)
 
 

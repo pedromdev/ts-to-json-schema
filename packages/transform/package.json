@@ -1,6 +1,6 @@
 {
   "name": "@ts-to-json-schema/transform",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Type transformer for TypeScript to JSON Schema",
   "author": "Pedro Marcelo <pedromarcelodesaalves@gmail.com>",
   "license": "MIT",
