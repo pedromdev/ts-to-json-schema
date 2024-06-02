@@ -14,7 +14,6 @@ jobs:
           - 16
           - 14
           - 12
-          - 10
         typescript-version:
           - '^5.1.0'
           - '~5.0.0'
@@ -25,6 +24,9 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - run: npm install
-      - run: npm install typescript@${{ matrix.typescript-version }}
-      - run: npm test
+      - uses: Borales/actions-yarn@v5
+      - run: yarn install
+      - run: yarn start
+      - run: yarn install typescript@${{ matrix.typescript-version }}
+      - run: yarn build:prod
+      - run: yarn test
