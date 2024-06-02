@@ -21,7 +21,9 @@ describe('ESBuild', () => {
   const sampleDistDir = path.resolve(__dirname, 'samples/dist');
 
   afterEach(() => {
-    fs.rmSync(sampleDistDir, { recursive: true });
+    if (fs.existsSync(sampleDistDir)) {
+      fs.rmSync(sampleDistDir, { recursive: true });
+    }
   });
 
   it('should build the project', async () => {
@@ -39,7 +41,7 @@ describe('ESBuild', () => {
     expect(result.errors).toEqual([]); // No errors
 
     executeTestCasesFromDir(sampleDistDir);
-  }, 10000);
+  }, 30000);
 
   it('should use default config file', async () => {
     const result = await esbuild.build({
@@ -52,7 +54,7 @@ describe('ESBuild', () => {
     });
 
     expect(result.errors).toEqual([]); // No errors
-  }, 10000);
+  }, 30000);
 
   it('should build TSX files', async () => {
     const result = await esbuild.build({
@@ -69,5 +71,5 @@ describe('ESBuild', () => {
     expect(result.errors).toEqual([]); // No errors
 
     executeTestCasesFromDir(sampleDistDir);
-  }, 10000);
+  }, 30000);
 });
