@@ -19,6 +19,7 @@ jobs:
           - '~5.0.0'
           - '^4.1.0'
           - '~4.0.0'
+          - '^3.1.0'
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
@@ -26,6 +27,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - run: yarn install
       - run: yarn start
+      - run: yarn add -W -D @types/node@${{ matrix.node-version }}
       - run: yarn add -W -D typescript@${{ matrix.typescript-version }}
       - run: yarn build:prod
       - run: yarn test
