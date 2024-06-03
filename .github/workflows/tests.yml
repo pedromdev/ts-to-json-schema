@@ -27,7 +27,6 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - run: yarn install
       - run: yarn start
-      - run: yarn add -W -D @types/node@${{ matrix.node-version }}
       - run: yarn add -W -D typescript@${{ matrix.typescript-version }}
       - run: yarn build:prod
       - run: yarn test
