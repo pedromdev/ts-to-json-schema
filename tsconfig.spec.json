@@ -2,6 +2,8 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "strict": true,
+    "skipLibCheck": false,
+    "types": ["node", "jest"],
     "plugins": [
       { "transform": "@ts-to-json-schema/transform", "type": "program", "cacheBetweenTests": false }
     ]
