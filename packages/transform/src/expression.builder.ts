@@ -1,33 +1,31 @@
 import * as ts from 'typescript';
+import { TypescriptAdapter } from './typescript.adapter';
 
 export class ExpressionBuilder {
+  private static readonly typescriptFactory = new TypescriptAdapter();
+
   public static build(value: any): ts.Expression {
     if (typeof value === 'string') {
-      return ts.factory.createStringLiteral(value);
+      return this.typescriptFactory.stringLiteral(value);
     } else if (typeof value === 'number') {
-      return value < 0
-        ? ts.factory.createPrefixUnaryExpression(
-          ts.SyntaxKind.MinusToken,
-          ts.factory.createNumericLiteral(-value),
-        )
-        : ts.factory.createNumericLiteral(value);
+      return this.typescriptFactory.numericLiteral(value);
     } else if (typeof value === 'boolean') {
-      return value ? ts.factory.createTrue() : ts.factory.createFalse();
+      return this.typescriptFactory.booleanLiteral(value);
     } else if (Array.isArray(value)) {
-      return ts.factory.createArrayLiteralExpression(value.map(v => this.build(v)));
+      return this.typescriptFactory.arrayLiteral(value.map(v => this.build(v)));
     } else if (typeof value === 'object' && value !== null) {
       const properties = Object.keys(value)
         .filter((key) => value[key] !== undefined)
         .map((key) => {
-          return ts.factory.createPropertyAssignment(
-            ts.factory.createStringLiteral(key),
+          return this.typescriptFactory.propertyAssignment(
+            key,
             this.build(value[key]),
           );
         });
 
-      return ts.factory.createObjectLiteralExpression(properties);
+      return this.typescriptFactory.objectLiteral(properties);
     }
 
-    return ts.factory.createNull();
+    return this.typescriptFactory.null();
   }
 }

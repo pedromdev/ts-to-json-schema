@@ -3,8 +3,11 @@ import { ExpressionBuilder } from "./expression.builder";
 import { SchemaTransformer } from "./schema.transformer";
 import { transformChain } from "./chain/chain";
 import { CycleResolver } from "./cycle.resolver";
+import { TypescriptAdapter } from "./typescript.adapter";
 
 export class Visitor {
+  private readonly typescriptAdapter = new TypescriptAdapter();
+
   constructor(
     private readonly typeChecker: ts.TypeChecker,
     private readonly context: ts.TransformationContext,
@@ -54,13 +57,13 @@ export class Visitor {
     const schema = transformer.transform(type);
     const resolvedCyclesSchema = CycleResolver.parse(schema);
     const expression = ExpressionBuilder.build(resolvedCyclesSchema);
-    const newCallExpression = ts.factory.createCallExpression(
+    const newCallExpression = this.typescriptAdapter.createCallExpression(
       node.expression,
       undefined,
       [expression],
     );
 
-    return ts.factory.updateCallExpression(
+    return this.typescriptAdapter.updateCallExpression(
       node,
       newCallExpression,
       node.typeArguments,
