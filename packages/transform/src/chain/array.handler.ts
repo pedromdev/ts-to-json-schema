@@ -4,7 +4,8 @@ import { AbstractTransformHandler } from "./abstract-transform.handler";
 
 export class ArrayHandler extends AbstractTransformHandler<ts.TypeReference> {
   shouldTransform(type: ts.Type): boolean {
-    return this.transformer.typeChecker.isArrayLikeType(type);
+    const typeChecker = this.transformer.typeChecker as any as { isArrayLikeType: (type: ts.Type) => boolean }; // workaround for missing method in type definition
+    return typeChecker.isArrayLikeType(type);
   }
 
   transform(type: ts.TypeReference): JsonSchema {
