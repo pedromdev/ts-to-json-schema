@@ -22,7 +22,8 @@ export class UnionHandler extends AbstractTransformHandler<ts.UnionType> {
 
   private replaceBooleanLiterals(subtypes: ts.Type[]) {
     const firstBooleanIndex = subtypes.findIndex(subtype => subtype.flags & ts.TypeFlags.BooleanLiteral);
-    const booleanType = this.transformer.typeChecker.getBooleanType();
+    const typeChecker = this.transformer.typeChecker as any as { getBooleanType: () => ts.Type }; // workaround for missing method in type definition
+    const booleanType = typeChecker.getBooleanType();
 
     if (firstBooleanIndex > -1) {
       subtypes.splice(firstBooleanIndex, 1, booleanType);
