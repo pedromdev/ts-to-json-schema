@@ -1,6 +1,6 @@
 {
   "name": "@ts-to-json-schema/core",
-  "version": "1.2.0",
+  "version": "1.2.2",
   "description": "Core functions for TypeScript to JSON Schema",
   "author": "Pedro Marcelo <pedromarcelodesaalves@gmail.com>",
   "license": "MIT",
@@ -31,6 +31,6 @@
     "build:prod": "yarn build --mode production"
   },
   "devDependencies": {
-    "@ts-to-json-schema/types": "1.2.0"
+    "@ts-to-json-schema/types": "1.2.2"
   }
 }
