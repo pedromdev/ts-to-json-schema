@@ -24,8 +24,8 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - run: npm install
-      - run: npm run start
-      - run: npm install typescript@${{ matrix.typescript-version }}
-      - run: npm run build:prod
-      - run: npm run test
+      - run: yarn install
+      - run: yarn start
+      - run: yarn add -W -D typescript@${{ matrix.typescript-version }}
+      - run: yarn build:prod
+      - run: yarn test
