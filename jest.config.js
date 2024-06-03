@@ -1,3 +1,5 @@
+const path = require('path');
+
 /** @type {import('ts-jest').JestConfigWithTsJest} */
 module.exports = {
   preset: 'ts-jest',
@@ -10,7 +12,7 @@ module.exports = {
     '^.+\\.spec\\.tsx?$': [
       'ts-jest',
       {
-        compiler: 'ts-patch/compiler',
+        compiler: path.resolve(__dirname, 'lib', 'compiler.js'),
         tsconfig: 'tsconfig.spec.json',
       },
     ],
