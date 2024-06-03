@@ -1,5 +1,7 @@
 # TypeScript to JSON Schema
 
+[![Unit Tests](https://github.com/pedromdev/ts-to-json-schema/actions/workflows/tests.yml/badge.svg)](https://github.com/pedromdev/ts-to-json-schema/actions/workflows/tests.yml)
+
 > Generate JSON Schema from TypeScript types
 
 ## Installation
