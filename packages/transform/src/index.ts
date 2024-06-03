@@ -1,4 +1,4 @@
-import type { Program, TransformerFactory, SourceFile } from 'typescript';
+import { Program, TransformerFactory, SourceFile } from 'typescript';
 import { Visitor } from "./visitor";
 
 export default function transform(program: Program): TransformerFactory<SourceFile> {

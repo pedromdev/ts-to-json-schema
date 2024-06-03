@@ -1,6 +1,6 @@
 import * as esbuild from 'esbuild';
-import * as path from "node:path";
-import * as fs from "node:fs";
+import * as path from "path";
+import * as fs from "fs";
 import { tsToJsonSchemaPlugin } from '../packages/esbuild-plugin/src';
 
 function executeTestCasesFromDir(dir: string) {
@@ -22,7 +22,7 @@ describe('ESBuild', () => {
 
   afterEach(() => {
     if (fs.existsSync(sampleDistDir)) {
-      fs.rmSync(sampleDistDir, { recursive: true });
+      fs.rmdirSync(sampleDistDir, { recursive: true });
     }
   });
 

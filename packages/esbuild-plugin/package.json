@@ -34,6 +34,6 @@
   "peerDependencies": {
     "@ts-to-json-schema/transform": "^1.0.0",
     "esbuild": "^0.21.1",
-    "typescript": "^3.1.0 || >=4.1.0 || ^5.0.0"
+    "typescript": ">=3.7.0 || >=4.1.0 || ^5.0.0"
   }
 }
