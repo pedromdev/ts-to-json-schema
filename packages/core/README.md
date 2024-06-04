@@ -14,9 +14,8 @@ npm install --save-dev typescript @ts-to-json-schema/transform ts-patch
 ```json
 {
   "compilerOptions": {
-    // ...
     "plugins": [
-      { "transform": "@ts-to-json-schema/compiler", "type": "program" }
+      { "transform": "@ts-to-json-schema/transform", "type": "program" }
     ]
   }
 }
