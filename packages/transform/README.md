@@ -10,7 +10,7 @@ npm install --save-dev typescript @ts-to-json-schema/transform
 
 ## Configuration
 
-### TypeScript Compiler API
+### 1. TypeScript Compiler API
 
 ```typescript
 import * as ts from 'typescript';
@@ -39,16 +39,23 @@ for (const sourceFile of sourceFiles) {
 }
 ```
 
-### TS Patch
+### 2. Alternative Compiler
 
-Install `ts-patch` package:
+To apply the transformation to the TypeScript code using bundlers/runners (such as Webpack, ts-node, etc.),
+you must use an alternative compiler that supports plugins. Install one of the following compilers based on TypeScript
+version:
+
+| TypeScript Version | Compiler            | Documentation                                     |
+|--------------------|---------------------|---------------------------------------------------|
+| 5.x or newer       | `ts-patch/compiler` | [link](https://www.npmjs.com/package/ts-patch)    |
+| 3.x, 4.x           | `ttypescript`       | [link](https://www.npmjs.com/package/ttypescript) |
 
 ```shell
 npm install --save-dev ts-patch
 ```
 
-Follow the instructions in the [TS Patch](https://www.npmjs.com/package/ts-patch) documentation 
-to configure `@ts-to-json-schema/transform` plugin. You need to enable `strict` mode too. 
+Follow the instructions in the documentation to configure `@ts-to-json-schema/transform` plugin.
+You need to enable `strict` mode too.
 
 ```json
 {
@@ -61,14 +68,16 @@ to configure `@ts-to-json-schema/transform` plugin. You need to enable `strict` 
 }
 ```
 
-#### Change TypeScript compiler (TSC) to TS Patch (TSPC)
+#### Change TypeScript compiler (TSC) to Alternative compiler
 
 If you just need compile/transform your TypeScript code into JavaScript code,
-you can `tspc` command instead of `tsc`.
+you can use one of following commands instead of `tsc`:
+- `ttsc` (for `ttypescript`)
+- `tspc` (for `ts-patch`)
 
 #### TS Node (ts-node)
 
-Add ts-patch compiler as ts-node compiler argument:
+Set the alternative compiler as ts-node compiler argument:
 
 ```shell
 ts-node --compiler=ts-patch/compiler src/index.ts
@@ -76,7 +85,7 @@ ts-node --compiler=ts-patch/compiler src/index.ts
 
 #### Webpack + TS Loader
 
-Add ts-patch compiler in ts-loader options
+Set the alternative compiler in ts-loader options
 
 ```javascript
 module.exports = {
@@ -96,6 +105,7 @@ module.exports = {
 };
 ```
 
-### ESBuild 
+### 3. ESBuild
 
-Follow the instructions in the [ESBuild plugin](https://www.npmjs.com/package/@ts-to-json-schema/esbuild-plugin) documentation.
+Follow the instructions in the [ESBuild plugin](https://www.npmjs.com/package/@ts-to-json-schema/esbuild-plugin)
+documentation.

@@ -4,6 +4,10 @@
 
 > Generate JSON Schema from TypeScript types
 
+## Prerequisites
+
+TypeScript: 3.7 or newer
+
 ## Installation
 
 ```bash
