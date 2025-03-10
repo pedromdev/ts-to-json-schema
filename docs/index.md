@@ -2,27 +2,34 @@
 layout: home
 hero:
   name: TS to JSON Schema
-  text: Converta tipos TypeScript em JSON Schema
-  tagline: Sem geradores, sem CLIs - apenas código TypeScript puro
+  text: Convert TypeScript types to JSON Schema
+  tagline: Choose your language / Escolha seu idioma / Elija su idioma
   actions:
     - theme: brand
-      text: Começar
-      link: /guide/getting-started
+      text: English
+      link: /en/
     - theme: alt
-      text: Ver no GitHub
-      link: https://github.com/pedromdev/ts-to-json-schema
+      text: Português (Brasil)
+      link: /pt-BR/
+    - theme: alt
+      text: Español
+      link: /es/
+---
 
-features:
-  - icon: 🚀
-    title: Simples de Usar
-    details: Integração direta com seu código TypeScript, sem necessidade de ferramentas externas.
-  - icon: 🔄
-    title: Conversão em Tempo Real
-    details: Converta seus tipos TypeScript em JSON Schema durante a execução do código.
-  - icon: 🛠️
-    title: Altamente Configurável
-    details: Personalize a geração do JSON Schema de acordo com suas necessidades.
-  - icon: 📦
-    title: Suporte a ESBuild
-    details: Plugin dedicado para integração com ESBuild.
---- 
+<script>
+// Redirect to the user's preferred language
+const userLang = navigator.language || navigator.userLanguage;
+const supportedLangs = {
+  'en': '/ts-to-json-schema/en/',
+  'pt-BR': '/ts-to-json-schema/pt-BR/',
+  'es': '/ts-to-json-schema/es/'
+};
+
+if (userLang.startsWith('pt')) {
+  window.location.href = supportedLangs['pt-BR'];
+} else if (userLang.startsWith('es')) {
+  window.location.href = supportedLangs['es'];
+} else {
+  window.location.href = supportedLangs['en'];
+}
+</script> 
