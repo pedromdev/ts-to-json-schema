@@ -1,6 +1,6 @@
 {
   "name": "@ts-to-json-schema/transform",
-  "version": "1.2.3",
+  "version": "1.3.0",
   "description": "Type transformer for TypeScript to JSON Schema",
   "author": "Pedro Marcelo <pedromarcelodesaalves@gmail.com>",
   "license": "MIT",
@@ -31,7 +31,7 @@
     "build:prod": "yarn build --mode production"
   },
   "devDependencies": {
-    "@ts-to-json-schema/types": "1.2.3"
+    "@ts-to-json-schema/types": "1.3.0"
   },
   "peerDependencies": {
     "typescript": ">=3.7.0 || >=4.1.0 || ^5.0.0"

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/pedromdev/ts-to-json-schema/compare/v1.2.4...v1.3.0) (2025-03-10)
+
+
+### Features
+
+* **metadata:** add support for JSDoc tags in JSON Schema ([d0fc6d1](https://github.com/pedromdev/ts-to-json-schema/commit/d0fc6d11f309d12097cddc7bb029c874e009d25e))
+
+
+
+
+
 ## [1.2.3](https://github.com/pedromdev/ts-to-json-schema/compare/v1.2.2...v1.2.3) (2024-06-04)
 
 **Note:** Version bump only for package @ts-to-json-schema/transform

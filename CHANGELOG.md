@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/pedromdev/ts-to-json-schema/compare/v1.2.4...v1.3.0) (2025-03-10)
+
+
+### Bug Fixes
+
+* **types:** ensure all properties are present in JSON Schema ([19d25c9](https://github.com/pedromdev/ts-to-json-schema/commit/19d25c94e5786a3c181c3bcd32c23b07ff3b392c))
+
+
+### Features
+
+* **core:** improve type inference in toJsonSchema function ([c0f9fc8](https://github.com/pedromdev/ts-to-json-schema/commit/c0f9fc8893639d3612c02bf569a19e00394eecdf))
+* **metadata:** add support for JSDoc tags in JSON Schema ([d0fc6d1](https://github.com/pedromdev/ts-to-json-schema/commit/d0fc6d11f309d12097cddc7bb029c874e009d25e))
+
+
+
+
+
 ## [1.2.4](https://github.com/pedromdev/ts-to-json-schema/compare/v1.2.3...v1.2.4) (2024-06-04)
 
 
