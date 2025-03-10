@@ -8,7 +8,7 @@ export class NumberHandler extends AbstractTransformHandler {
     return !!(type.flags & ts.TypeFlags.Number);
   }
 
-  transform(type: ts.Type): JsonSchema {
-    return CycleResolver.ignore({type: 'number'});
+  transform(type: ts.Type, originSymbol?: ts.Symbol): JsonSchema {
+    return CycleResolver.ignore(this.addMetadata({type: 'number'}, originSymbol));
   }
 }

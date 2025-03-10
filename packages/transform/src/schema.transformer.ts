@@ -11,9 +11,9 @@ export class SchemaTransformer {
     private readonly transformChain: TransformChain,
   ) {}
 
-  transform(type: ts.Type): JsonSchema {
+  transform(type: ts.Type, originSymbol?: ts.Symbol): JsonSchema {
     const handler = this.handlers.find(handler => handler.shouldTransform(type));
 
-    return handler ? handler.transform(type) : {};
+    return handler ? handler.transform(type, originSymbol) : {};
   }
 }

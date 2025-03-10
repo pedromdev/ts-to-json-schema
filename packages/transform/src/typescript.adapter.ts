@@ -4,6 +4,8 @@ export class TypescriptAdapter {
   private readonly useFactory = /^v?([45])/.test(ts.version);
   private readonly ts = ts as any;
 
+  constructor(private readonly typeChecker?: ts.TypeChecker) {}
+
   public stringLiteral(text: string): ts.StringLiteral {
     return this.useFactory
       ? this.ts.factory.createStringLiteral(text)
@@ -69,5 +71,22 @@ export class TypescriptAdapter {
     return this.useFactory
       ? this.ts.factory.updateCallExpression(node, expression, typeArguments, argumentsArray)
       : this.ts.updateCall(node, expression, typeArguments, argumentsArray);
+  }
+
+  public getJSDocComment(symbol: ts.Symbol): string {
+    return ts.displayPartsToString(symbol.getDocumentationComment(this.typeChecker));
+  }
+
+  public getJSDocTags(symbol: ts.Symbol): ts.JSDocTagInfo[] | undefined {
+    return symbol.getJsDocTags();
+  }
+  
+  public getJSDocTagText(tag: ts.JSDocTagInfo): string {
+    if (!tag.text || tag.text.length === 0) {
+      return '';
+    }
+    
+    // Concatenar todas as partes do texto da tag
+    return tag.text.map(part => part.text).join('');
   }
 }

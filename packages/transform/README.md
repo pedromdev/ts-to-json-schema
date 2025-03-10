@@ -1,11 +1,258 @@
 # `@ts-to-json-schema/transform`
 
-> Type transformer for TypeScript to JSON Schema
+Este pacote é responsável por transformar tipos TypeScript em objetos JSON Schema.
 
-## Installation
+## Instalação
 
-```shell
-npm install --save-dev typescript @ts-to-json-schema/transform
+```bash
+npm install @ts-to-json-schema/transform
+```
+
+ou
+
+```bash
+yarn add @ts-to-json-schema/transform
+```
+
+## Uso
+
+Este pacote é usado internamente pelo pacote `@ts-to-json-schema/core` e não deve ser usado diretamente.
+
+## Tags JSDoc Suportadas
+
+O pacote suporta as seguintes tags JSDoc para adicionar metadados ao JSON Schema:
+
+### `@deprecated`
+
+Marca um campo como obsoleto.
+
+```typescript
+interface Example {
+  /**
+   * @deprecated Este campo está obsoleto e será removido na próxima versão
+   */
+  field: string;
+}
+```
+
+Resultado no JSON Schema:
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "field": {
+      "type": "string",
+      "deprecated": true
+    }
+  },
+  "required": ["field"]
+}
+```
+
+### `@example`
+
+Fornece exemplos de valores para um campo.
+
+```typescript
+interface Example {
+  /**
+   * @example "valor de exemplo"
+   * @example 123
+   */
+  field: string;
+}
+```
+
+Resultado no JSON Schema:
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "field": {
+      "type": "string",
+      "examples": ["valor de exemplo", "123"]
+    }
+  },
+  "required": ["field"]
+}
+```
+
+### `@see`
+
+Fornece links para documentação adicional.
+
+```typescript
+interface Example {
+  /**
+   * @see https://example.com/docs
+   */
+  field: string;
+}
+```
+
+Resultado no JSON Schema:
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "field": {
+      "type": "string",
+      "see": "https://example.com/docs"
+    }
+  },
+  "required": ["field"]
+}
+```
+
+### `@since`
+
+Indica a versão em que um campo foi introduzido.
+
+```typescript
+interface Example {
+  /**
+   * @since 1.0.0
+   */
+  field: string;
+}
+```
+
+Resultado no JSON Schema:
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "field": {
+      "type": "string",
+      "since": "1.0.0"
+    }
+  },
+  "required": ["field"]
+}
+```
+
+### `@default`
+
+Fornece um valor padrão para um campo.
+
+```typescript
+interface Example {
+  /**
+   * @default "valor padrão"
+   */
+  field: string;
+}
+```
+
+Resultado no JSON Schema:
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "field": {
+      "type": "string",
+      "default": "valor padrão"
+    }
+  },
+  "required": ["field"]
+}
+```
+
+### Tags de Validação Numérica
+
+#### `@minimum` e `@maximum`
+
+Especificam os valores mínimo e máximo para um campo numérico.
+
+```typescript
+interface Example {
+  /**
+   * @minimum 1
+   * @maximum 100
+   */
+  field: number;
+}
+```
+
+Resultado no JSON Schema:
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "field": {
+      "type": "number",
+      "minimum": 1,
+      "maximum": 100
+    }
+  },
+  "required": ["field"]
+}
+```
+
+### Tags de Validação de String
+
+#### `@minLength` e `@maxLength`
+
+Especificam os comprimentos mínimo e máximo para um campo de string.
+
+```typescript
+interface Example {
+  /**
+   * @minLength 3
+   * @maxLength 100
+   */
+  field: string;
+}
+```
+
+Resultado no JSON Schema:
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "field": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 100
+    }
+  },
+  "required": ["field"]
+}
+```
+
+### `@format`
+
+Especifica o formato de um campo.
+
+```typescript
+interface Example {
+  /**
+   * @format email
+   */
+  field: string;
+}
+```
+
+Resultado no JSON Schema:
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "field": {
+      "type": "string",
+      "format": "email"
+    }
+  },
+  "required": ["field"]
+}
 ```
 
 ## Configuration

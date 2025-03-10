@@ -8,7 +8,7 @@ export class StringHandler extends AbstractTransformHandler {
     return !!(type.flags & ts.TypeFlags.String);
   }
 
-  transform(type: ts.Type): JsonSchema {
-    return CycleResolver.ignore({type: 'string'});
+  transform(type: ts.Type, originSymbol?: ts.Symbol): JsonSchema {
+    return CycleResolver.ignore(this.addMetadata({type: 'string'}, originSymbol));
   }
 }

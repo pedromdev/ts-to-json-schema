@@ -8,11 +8,13 @@ export class ArrayHandler extends AbstractTransformHandler<ts.TypeReference> {
     return typeChecker.isArrayLikeType(type);
   }
 
-  transform(type: ts.TypeReference): JsonSchema {
+  transform(type: ts.TypeReference, originSymbol?: ts.Symbol): JsonSchema {
     const arrayType = this.transformer.typeChecker.getTypeArguments(type)[0];
-    return {
+    const schema = {
       type: 'array',
       items: this.transformer.transform(arrayType),
     };
+    
+    return this.addMetadata(schema, originSymbol);
   }
 }

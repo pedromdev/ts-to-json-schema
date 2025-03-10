@@ -6,7 +6,7 @@ import { CycleResolver } from "./cycle.resolver";
 import { TypescriptAdapter } from "./typescript.adapter";
 
 export class Visitor {
-  private readonly typescriptAdapter = new TypescriptAdapter();
+  private readonly typescriptAdapter = new TypescriptAdapter(this.typeChecker);
 
   constructor(
     private readonly typeChecker: ts.TypeChecker,

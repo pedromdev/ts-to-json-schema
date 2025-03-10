@@ -62,7 +62,7 @@ export class ClassOrObjectHandler extends AbstractTransformHandler {
 
       return {
         ...acc,
-        [key]: this.transformer.transform(type),
+        [key]: this.transformer.transform(type, value),
       };
     }, {});
   }
