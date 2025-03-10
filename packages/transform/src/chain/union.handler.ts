@@ -7,7 +7,7 @@ export class UnionHandler extends AbstractTransformHandler<ts.UnionType> {
     return !!(type.flags & ts.TypeFlags.Union);
   }
 
-  transform(type: ts.UnionType): JsonSchema {
+  transform(type: ts.UnionType, originSymbol?: ts.Symbol): JsonSchema {
     const subtypes = type.types.filter(subtype => !(subtype.flags & ts.TypeFlags.Undefined));
 
     this.replaceBooleanLiterals(subtypes);
@@ -15,9 +15,11 @@ export class UnionHandler extends AbstractTransformHandler<ts.UnionType> {
 
     const types: JsonSchema[] = subtypes.map(subtype => this.transformer.transform(subtype));
 
-    return {
+    const schema: JsonSchema = {
       anyOf: types,
     };
+
+    return this.addMetadata(schema, originSymbol);
   }
 
   private replaceBooleanLiterals(subtypes: ts.Type[]) {

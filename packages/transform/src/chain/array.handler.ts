@@ -1,4 +1,4 @@
-import { JsonSchema } from "@ts-to-json-schema/types";
+import { JsonSchema, PrimitiveType } from "@ts-to-json-schema/types";
 import * as ts from 'typescript';
 import { AbstractTransformHandler } from "./abstract-transform.handler";
 
@@ -10,8 +10,8 @@ export class ArrayHandler extends AbstractTransformHandler<ts.TypeReference> {
 
   transform(type: ts.TypeReference, originSymbol?: ts.Symbol): JsonSchema {
     const arrayType = this.transformer.typeChecker.getTypeArguments(type)[0];
-    const schema = {
-      type: 'array',
+    const schema: JsonSchema = {
+      type: 'array' as PrimitiveType,
       items: this.transformer.transform(arrayType),
     };
     

@@ -1,4 +1,4 @@
-import { JsonSchema } from "@ts-to-json-schema/types";
+import { JsonSchema, PrimitiveType } from "@ts-to-json-schema/types";
 import * as ts from 'typescript';
 import { AbstractTransformHandler } from "./abstract-transform.handler";
 import { CycleResolver } from "../cycle.resolver";
@@ -8,16 +8,19 @@ export class EnumLikeHandler extends AbstractTransformHandler {
     return !!(type.flags & ts.TypeFlags.EnumLike) || this.isUnionLikeEnum(type)
   }
 
-  transform(type: ts.Type): JsonSchema {
+  transform(type: ts.Type, originSymbol?: ts.Symbol): JsonSchema {
     const values = this.getValues(type);
+    let schema: JsonSchema;
 
     if (values.every((value) => typeof value === 'string')) {
-      return CycleResolver.ignore({ type: 'string', enum: values });
+      schema = { type: 'string' as PrimitiveType, enum: values };
     } else if (values.every((value) => typeof value === 'number')) {
-      return CycleResolver.ignore({ type: 'number', enum: values });
+      schema = { type: 'number' as PrimitiveType, enum: values };
+    } else {
+      schema = { enum: values };
     }
 
-    return CycleResolver.ignore({ enum: values });
+    return CycleResolver.ignore(this.addMetadata(schema, originSymbol));
   }
 
   private getValues(type: ts.Type) {

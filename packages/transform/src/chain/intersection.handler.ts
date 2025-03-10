@@ -7,12 +7,15 @@ export class IntersectionHandler extends AbstractTransformHandler<ts.Intersectio
     return !!(type.flags & ts.TypeFlags.Intersection);
   }
 
-  transform(type: ts.IntersectionType): JsonSchema {
+  transform(type: ts.IntersectionType, originSymbol?: ts.Symbol): JsonSchema {
     const types: JsonSchema[] = type.types
       .filter(subtype => !(subtype.flags & ts.TypeFlags.Undefined))
       .map(subtype => this.transformer.transform(subtype));
-    return {
+    
+    const schema: JsonSchema = {
       allOf: types,
     };
+
+    return this.addMetadata(schema, originSymbol);
   }
 }

@@ -1,4 +1,4 @@
-import { JsonSchema, Type } from "@ts-to-json-schema/types";
+import { JsonSchema, PrimitiveType, Type } from "@ts-to-json-schema/types";
 import * as ts from 'typescript';
 import { AbstractTransformHandler } from "./abstract-transform.handler";
 
@@ -15,14 +15,14 @@ export class ClassOrObjectHandler extends AbstractTransformHandler {
     );
   }
 
-  transform(type: Type): JsonSchema {
+  transform(type: Type, originSymbol?: ts.Symbol): JsonSchema {
     const cached = this.typesCache.get(type.id!);
 
     if (cached) {
       return cached;
     }
 
-    const schema: JsonSchema = { type: 'object' };
+    const schema: JsonSchema = { type: 'object' as PrimitiveType };
 
     this.typesCache.set(type.id!, schema);
 
@@ -38,7 +38,7 @@ export class ClassOrObjectHandler extends AbstractTransformHandler {
       schema.required = required;
     }
 
-    return schema;
+    return this.addMetadata(schema, originSymbol);
   }
 
   private getPropertiesEntries(type: ts.Type): PropertyEntry[] {

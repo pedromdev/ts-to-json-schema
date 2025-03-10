@@ -9,8 +9,9 @@ export class AnyHandler extends AbstractTransformHandler {
     return !!(type.flags & ts.TypeFlags.Any);
   }
 
-  transform(type: ts.Type): JsonSchema {
-    return CycleResolver.ignore({});
+  transform(type: ts.Type, originSymbol?: ts.Symbol): JsonSchema {
+    const schema: JsonSchema = {};
+    return CycleResolver.ignore(this.addMetadata(schema, originSymbol));
   }
 
 }
