@@ -1,41 +1,41 @@
 # `@ts-to-json-schema/transform`
 
-Este pacote é responsável por transformar tipos TypeScript em objetos JSON Schema.
+This package is responsible for transforming TypeScript types into JSON Schema objects.
 
-## Instalação
+## Installation
 
 ```bash
 npm install @ts-to-json-schema/transform
 ```
 
-ou
+or
 
 ```bash
 yarn add @ts-to-json-schema/transform
 ```
 
-## Uso
+## Usage
 
-Este pacote é usado internamente pelo pacote `@ts-to-json-schema/core` e não deve ser usado diretamente.
+This package is used internally by the `@ts-to-json-schema/core` package and should not be used directly.
 
-## Tags JSDoc Suportadas
+## Supported JSDoc Tags
 
-O pacote suporta as seguintes tags JSDoc para adicionar metadados ao JSON Schema:
+The package supports the following JSDoc tags to add metadata to the JSON Schema:
 
 ### `@deprecated`
 
-Marca um campo como obsoleto.
+Marks a field as deprecated.
 
 ```typescript
 interface Example {
   /**
-   * @deprecated Este campo está obsoleto e será removido na próxima versão
+   * @deprecated This field is deprecated and will be removed in the next version
    */
   field: string;
 }
 ```
 
-Resultado no JSON Schema:
+Result in JSON Schema:
 
 ```json
 {
@@ -52,19 +52,19 @@ Resultado no JSON Schema:
 
 ### `@example`
 
-Fornece exemplos de valores para um campo.
+Provides example values for a field.
 
 ```typescript
 interface Example {
   /**
-   * @example "valor de exemplo"
+   * @example "example value"
    * @example 123
    */
   field: string;
 }
 ```
 
-Resultado no JSON Schema:
+Result in JSON Schema:
 
 ```json
 {
@@ -72,7 +72,7 @@ Resultado no JSON Schema:
   "properties": {
     "field": {
       "type": "string",
-      "examples": ["valor de exemplo", "123"]
+      "examples": ["example value", "123"]
     }
   },
   "required": ["field"]
@@ -81,7 +81,7 @@ Resultado no JSON Schema:
 
 ### `@see`
 
-Fornece links para documentação adicional.
+Provides links to additional documentation.
 
 ```typescript
 interface Example {
@@ -92,7 +92,7 @@ interface Example {
 }
 ```
 
-Resultado no JSON Schema:
+Result in JSON Schema:
 
 ```json
 {
@@ -109,7 +109,7 @@ Resultado no JSON Schema:
 
 ### `@since`
 
-Indica a versão em que um campo foi introduzido.
+Indicates the version in which a field was introduced.
 
 ```typescript
 interface Example {
@@ -120,7 +120,7 @@ interface Example {
 }
 ```
 
-Resultado no JSON Schema:
+Result in JSON Schema:
 
 ```json
 {
@@ -137,18 +137,18 @@ Resultado no JSON Schema:
 
 ### `@default`
 
-Fornece um valor padrão para um campo.
+Provides a default value for a field.
 
 ```typescript
 interface Example {
   /**
-   * @default "valor padrão"
+   * @default "default value"
    */
   field: string;
 }
 ```
 
-Resultado no JSON Schema:
+Result in JSON Schema:
 
 ```json
 {
@@ -156,18 +156,18 @@ Resultado no JSON Schema:
   "properties": {
     "field": {
       "type": "string",
-      "default": "valor padrão"
+      "default": "default value"
     }
   },
   "required": ["field"]
 }
 ```
 
-### Tags de Validação Numérica
+### Numeric Validation Tags
 
-#### `@minimum` e `@maximum`
+#### `@minimum` and `@maximum`
 
-Especificam os valores mínimo e máximo para um campo numérico.
+Specify the minimum and maximum values for a numeric field.
 
 ```typescript
 interface Example {
@@ -179,7 +179,7 @@ interface Example {
 }
 ```
 
-Resultado no JSON Schema:
+Result in JSON Schema:
 
 ```json
 {
@@ -195,11 +195,11 @@ Resultado no JSON Schema:
 }
 ```
 
-### Tags de Validação de String
+### String Validation Tags
 
-#### `@minLength` e `@maxLength`
+#### `@minLength` and `@maxLength`
 
-Especificam os comprimentos mínimo e máximo para um campo de string.
+Specify the minimum and maximum lengths for a string field.
 
 ```typescript
 interface Example {
@@ -211,7 +211,7 @@ interface Example {
 }
 ```
 
-Resultado no JSON Schema:
+Result in JSON Schema:
 
 ```json
 {
@@ -229,7 +229,7 @@ Resultado no JSON Schema:
 
 ### `@format`
 
-Especifica o formato de um campo.
+Specifies the format of a field.
 
 ```typescript
 interface Example {
@@ -240,7 +240,7 @@ interface Example {
 }
 ```
 
-Resultado no JSON Schema:
+Result in JSON Schema:
 
 ```json
 {
