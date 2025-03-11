@@ -7,7 +7,7 @@ hero:
   actions:
     - theme: brand
       text: Começar
-      link: /guide/getting-started
+      link: /pt-BR/guide/getting-started
     - theme: alt
       text: Ver no GitHub
       link: https://github.com/pedromdev/ts-to-json-schema
