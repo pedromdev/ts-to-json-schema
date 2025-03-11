@@ -29,7 +29,9 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - run: yarn install
+      - run: |
+          yarn install --ignore-optional --ignore-scripts
+          yarn remove -W vitepress vue
       - run: yarn start
       - run: yarn add -W -D typescript@${{ matrix.typescript-version }}
       - run: yarn build:prod
