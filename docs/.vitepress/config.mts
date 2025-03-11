@@ -4,6 +4,11 @@ export default defineConfig({
   title: 'TS to JSON Schema',
   description: 'Get JSON Schema from TypeScript types without Generators/CLIs',
   base: '/ts-to-json-schema/',
+  markdown: {
+    config: (md) => {
+      md.use(require('markdown-it-mermaid'))
+    }
+  },
   locales: {
     root: {
       label: 'English',
