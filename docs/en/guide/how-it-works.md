@@ -1,60 +1,83 @@
-# Como Funciona
+# How it Works
 
-O TS to JSON Schema utiliza uma abordagem única para converter tipos TypeScript em JSON Schema. Em vez de gerar os schemas em tempo de compilação ou através de ferramentas CLI, a biblioteca funciona em tempo de execução, mantendo a tipagem forte do TypeScript.
+TS to JSON Schema uses a unique approach to convert TypeScript types to JSON Schema. Instead of generating schemas at compile time or through CLI tools, the library works at runtime while maintaining TypeScript's strong typing.
 
-## Arquitetura
+## Architecture
 
-A biblioteca é dividida em vários pacotes, cada um com uma responsabilidade específica:
+The library is divided into several packages, each with a specific responsibility:
 
 ### @ts-to-json-schema/core
 
-O pacote core fornece a função principal `toJsonSchema` que você usa em seu código. Esta função parece simples na superfície, mas internamente ela:
+The core package provides the main `toJsonSchema` function that you use in your code. This function seems simple on the surface, but internally it:
 
-1. Captura informações sobre o tipo TypeScript usado como parâmetro genérico
-2. Utiliza as informações coletadas pelo transformador para gerar o schema
-3. Aplica as configurações e personalizações definidas
+1. Captures information about the TypeScript type used as a generic parameter
+2. Uses the information collected by the transformer to generate the schema
+3. Applies the defined settings and customizations
 
 ### @ts-to-json-schema/transform
 
-Este é o coração da mágica. O transformador:
+This is where the magic happens. The transformer:
 
-1. É executado durante a compilação do TypeScript
-2. Analisa os tipos usando a API do Compilador TypeScript
-3. Coleta metadados sobre os tipos
-4. Injeta os metadados no código compilado
+1. Runs during TypeScript compilation
+2. Analyzes types using the TypeScript Compiler API
+3. Collects metadata about types
+4. Injects metadata into the compiled code
 
 ### @ts-to-json-schema/types
 
-Contém as definições de tipos compartilhadas entre os pacotes, incluindo:
+Contains shared type definitions between packages, including:
 
-- Tipos para configuração
-- Interfaces para os schemas
-- Tipos utilitários
+- Configuration types
+- Schema interfaces
+- Utility types
 
 ### @ts-to-json-schema/esbuild-plugin
 
-Fornece integração com o ESBuild, permitindo:
+Provides ESBuild integration, allowing:
 
-- Configuração automática do transformador
-- Otimização do processo de build
-- Suporte a várias configurações do ESBuild
+- Automatic transformer configuration
+- Build process optimization
+- Support for various ESBuild configurations
 
-## Fluxo de Execução
+## Transformation Flow
 
-1. **Tempo de Compilação**
-   - O transformador analisa seu código TypeScript
-   - Coleta informações sobre os tipos
-   - Injeta os metadados no código compilado
+```mermaid
+graph TB
+    subgraph "Compile Time"
+        A[TypeScript Code] -->|@ts-to-json-schema/transform| B[Type Analysis]
+        B -->|TS Compiler API| C[Metadata Collection]
+        C --> D[Injection into JS Code]
+    end
 
-2. **Tempo de Execução**
-   - Você chama `toJsonSchema<SeuTipo>()`
-   - A função acessa os metadados injetados
-   - Gera o JSON Schema correspondente
+    subgraph "Runtime"
+        E[toJsonSchema Call] -->|@ts-to-json-schema/core| F[Metadata Reading]
+        F --> G[Schema Generation]
+        G -->|@ts-to-json-schema/types| H[Final JSON Schema]
+    end
 
-## Exemplo Detalhado
+    D -.->|Metadata Available| F
+
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style E fill:#bbf,stroke:#333,stroke-width:2px
+    style H fill:#bfb,stroke:#333,stroke-width:2px
+```
+
+## Execution Flow
+
+1. **Compile Time**
+   - The transformer analyzes your TypeScript code
+   - Collects type information
+   - Injects metadata into the compiled code
+
+2. **Runtime**
+   - You call `toJsonSchema<YourType>()`
+   - The function accesses the injected metadata
+   - Generates the corresponding JSON Schema
+
+## Detailed Example
 
 ```typescript
-// 1. Defina seus tipos
+// 1. Define your types
 interface User {
   id: number;
   name: string;
@@ -65,10 +88,10 @@ interface User {
   };
 }
 
-// 2. Use a função toJsonSchema
+// 2. Use the toJsonSchema function
 const schema = toJsonSchema<User>();
 
-// 3. O schema gerado incluirá:
+// 3. The generated schema will include:
 // {
 //   type: 'object',
 //   properties: {
@@ -88,20 +111,20 @@ const schema = toJsonSchema<User>();
 // }
 ```
 
-## Vantagens desta Abordagem
+## Advantages of this Approach
 
-1. **Sem Etapa Extra de Build**
-   - Não precisa executar geradores
-   - Integração natural com o fluxo de desenvolvimento
+1. **No Extra Build Step**
+   - No need to run generators
+   - Natural integration with development flow
 
-2. **Tipagem Forte**
-   - Mantém o TypeScript como fonte única da verdade
-   - Erros de tipo são pegos em tempo de compilação
+2. **Strong Typing**
+   - Keeps TypeScript as the single source of truth
+   - Type errors are caught at compile time
 
 3. **Performance**
-   - Metadados são gerados apenas uma vez durante a compilação
-   - Geração de schema é rápida em tempo de execução
+   - Metadata is generated only once during compilation
+   - Schema generation is fast at runtime
 
-4. **Flexibilidade**
-   - Suporte a tipos complexos
-   - Personalizável através de configurações 
+4. **Flexibility**
+   - Support for complex types
+   - Customizable through configurations 
