@@ -4,7 +4,7 @@ TS to JSON Schema is a library that allows you to convert TypeScript types to JS
 
 ## Prerequisites
 
-- TypeScript 3.7 or higher
+- TypeScript 4.1 or higher
 - Node.js 12 or higher
 
 ## Quick Installation

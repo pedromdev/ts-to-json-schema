@@ -4,7 +4,7 @@ O TS to JSON Schema é uma biblioteca que permite converter tipos TypeScript em 
 
 ## Pré-requisitos
 
-- TypeScript 3.7 ou superior
+- TypeScript 4.1 ou superior
 - Node.js 12 ou superior
 
 ## Instalação Rápida
@@ -52,6 +52,6 @@ O código acima irá gerar o seguinte JSON Schema:
 
 ## Próximos Passos
 
-- Leia o [guia de instalação](/guide/installation) para uma configuração detalhada
-- Entenda [como funciona](/guide/how-it-works) a biblioteca
-- Explore a [documentação da API](/api/core) para recursos avançados 
+- Leia o [guia de instalação](/pt-BR/guide/installation) para uma configuração detalhada
+- Entenda [como funciona](/pt-BR/guide/how-it-works) a biblioteca
+- Explore a [documentação da API](/pt-BR/api/core) para recursos avançados 
