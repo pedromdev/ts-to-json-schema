@@ -6,7 +6,7 @@
 
 ## Prerequisites
 
-TypeScript: 3.7 or newer
+TypeScript: 4.1 or newer
 
 ## Magic's secret
 
