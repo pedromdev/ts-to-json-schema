@@ -8,3 +8,8 @@ dist/
 packages/*/index.js
 packages/*/index.js.map
 packages/*/index.d.ts
+
+# Documentation
+docs/node_modules
+docs/.vitepress/dist
+docs/.vitepress/cache
