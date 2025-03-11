@@ -41,15 +41,15 @@ Fornece integração com o ESBuild, permitindo:
 
 ## Fluxo de Transformação
 
-```mermaid
+<Mermaid graph="
 graph TB
-    subgraph "Tempo de Compilação"
+    subgraph 'Tempo de Compilação'
         A[Código TypeScript] -->|@ts-to-json-schema/transform| B[Análise de Tipos]
         B -->|API do Compilador TS| C[Coleta de Metadados]
         C --> D[Injeção no Código JS]
     end
 
-    subgraph "Tempo de Execução"
+    subgraph 'Tempo de Execução'
         E[Chamada toJsonSchema] -->|@ts-to-json-schema/core| F[Leitura de Metadados]
         F --> G[Geração do Schema]
         G -->|@ts-to-json-schema/types| H[JSON Schema Final]
@@ -60,7 +60,7 @@ graph TB
     style A fill:#f9f,stroke:#333,stroke-width:2px
     style E fill:#bbf,stroke:#333,stroke-width:2px
     style H fill:#bfb,stroke:#333,stroke-width:2px
-```
+"/>
 
 ## Fluxo de Execução
 
