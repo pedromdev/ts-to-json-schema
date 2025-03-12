@@ -4,10 +4,19 @@ on:
     branches:
       - main
 
+# Permissões necessárias para o GitHub Pages
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
 jobs:
   deploy:
     name: Deploy to GitHub Pages
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     defaults:
       run:
         working-directory: docs
@@ -24,8 +33,14 @@ jobs:
       - name: Build
         run: yarn build
 
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: docs/.vitepress/dist 
+          path: docs/.vitepress/dist
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4 
