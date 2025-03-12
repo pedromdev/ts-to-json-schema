@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Perguntas e Discussões
+    url: https://github.com/pedromdev/ts-to-json-schema/discussions
+    about: Por favor, use as Discussões para perguntas e suporte geral
+  - name: Documentação
+    url: https://pedromdev.github.io/ts-to-json-schema/
+    about: Consulte a documentação para obter informações sobre como usar o TS to JSON Schema 
