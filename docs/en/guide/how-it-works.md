@@ -41,7 +41,7 @@ Provides ESBuild integration, allowing:
 
 ## Transformation Flow
 
-<Mermaid graph="
+<Mermaid :graph="`
 graph TB
     subgraph 'Compile Time'
         A[TypeScript Code] -->|@ts-to-json-schema/transform| B[Type Analysis]
@@ -60,7 +60,7 @@ graph TB
     style A fill:#f9f,stroke:#333,stroke-width:2px
     style E fill:#bbf,stroke:#333,stroke-width:2px
     style H fill:#bfb,stroke:#333,stroke-width:2px
-"/>
+`" />
 
 ## Execution Flow
 
