@@ -42,31 +42,26 @@ Proporciona integración con ESBuild, permitiendo:
 ## Flujo de Transformación
 
 ```mermaid
-graph TB
-    subgraph "Tiempo de Compilación"
-        A[Código TypeScript] -->|@ts-to-json-schema/transform| B[Análisis de Tipos]
-        B -->|API del Compilador TS| C[Recopilación de Metadatos]
-        C --> D[Inyección en Código JS]
+flowchart TB
+    subgraph TC["Tiempo de Compilación"]
+        A["Código TypeScript"] -->|"@ts-to-json-schema/transform"| B["Análisis de Tipos"]
+        B -->|"API del Compilador TS"| C["Recopilación de Metadatos"]
+        C --> D["Inyección en Código JS"]
     end
 
-    subgraph "Tiempo de Ejecución"
-        E[Llamada toJsonSchema] -->|@ts-to-json-schema/core| F[Lectura de Metadatos]
-        F --> G[Generación del Schema]
-        G -->|@ts-to-json-schema/types| H[JSON Schema Final]
+    subgraph TE["Tiempo de Ejecución"]
+        E["Llamada toJsonSchema"] -->|"@ts-to-json-schema/core"| F["Lectura de Metadatos"]
+        F --> G["Generación del Schema"]
+        G -->|"@ts-to-json-schema/types"| H["JSON Schema Final"]
     end
 
-    D -.->|Metadatos Disponibles| F
+    D -.->|"Metadatos Disponibles"| F
 
-    style A fill:#f9f,stroke:#333,stroke-width:2px
-    style E fill:#bbf,stroke:#333,stroke-width:2px
-    style H fill:#bfb,stroke:#333,stroke-width:2px
-    
-    %% Colores específicos para mejorar el contraste en modo oscuro
     classDef default fill:#444,stroke:#42b883,color:#fff,stroke-width:2px
-    classDef subgraph fill:#333,stroke:#42b883,color:#fff
+    classDef cluster fill:#333,stroke:#42b883,color:#fff,stroke-width:2px
     
     class A,B,C,D,E,F,G,H default
-    class "Tiempo de Compilación","Tiempo de Ejecución" subgraph
+    class TC,TE cluster
 ```
 
 ## Flujo de Ejecución
