@@ -149,7 +149,7 @@ export default withMermaid(
     themeConfig: {
       footer: {
         message: 'Released under the MIT License.',
-        copyright: 'Copyright © 2024-present Pedro Medeiros'
+        copyright: 'Copyright © 2024-present Pedro Marcelo'
       }
     }
   })
