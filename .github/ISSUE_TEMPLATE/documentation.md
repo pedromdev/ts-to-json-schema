@@ -1,31 +1,31 @@
 ---
-name: Melhoria na documentação
-about: Sugira melhorias ou correções na documentação
+name: Documentation improvement
+about: Suggest improvements or corrections to the documentation
 title: '[DOCS] '
 labels: documentation
 assignees: ''
 ---
 
-## Página ou Seção
-<!-- Indique qual página ou seção da documentação precisa ser melhorada -->
+## Page or Section
+<!-- Indicate which page or section of the documentation needs improvement -->
 
-## Problema Atual
-<!-- Descreva o que está errado, confuso ou ausente na documentação atual -->
+## Current Issue
+<!-- Describe what is wrong, confusing, or missing in the current documentation -->
 
-## Sugestão de Melhoria
-<!-- Descreva como você sugere que a documentação seja melhorada -->
+## Improvement Suggestion
+<!-- Describe how you suggest the documentation should be improved -->
 
-## Proposta de Conteúdo
-<!-- Se possível, forneça um rascunho do conteúdo que você sugere -->
+## Proposed Content
+<!-- If possible, provide a draft of the content you suggest -->
 
-## Idiomas Afetados
-<!-- Marque quais idiomas da documentação são afetados -->
-- [ ] Inglês
-- [ ] Português (Brasil)
-- [ ] Espanhol
+## Affected Languages
+<!-- Check which documentation languages are affected -->
+- [ ] English
+- [ ] Portuguese (Brazil)
+- [ ] Spanish
 
-## Capturas de Tela
-<!-- Se aplicável, adicione capturas de tela para ajudar a explicar o problema -->
+## Screenshots
+<!-- If applicable, add screenshots to help explain the issue -->
 
-## Contexto Adicional
-<!-- Adicione qualquer outro contexto sobre a solicitação de melhoria na documentação aqui --> 
+## Additional Context
+<!-- Add any other context about the documentation improvement request here --> 

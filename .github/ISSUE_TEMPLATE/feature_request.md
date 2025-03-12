@@ -1,28 +1,28 @@
 ---
-name: Solicitação de funcionalidade
-about: Sugira uma ideia para este projeto
+name: Feature request
+about: Suggest an idea for this project
 title: '[FEATURE] '
 labels: enhancement
 assignees: ''
 ---
 
-## Problema Relacionado
-<!-- Uma descrição clara e concisa do problema que sua funcionalidade resolveria. Ex: Fico frustrado quando [...] -->
+## Related Problem
+<!-- A clear and concise description of the problem this feature would solve. E.g. I'm always frustrated when [...] -->
 
-## Solução Desejada
-<!-- Uma descrição clara e concisa do que você gostaria que acontecesse -->
+## Desired Solution
+<!-- A clear and concise description of what you want to happen -->
 
-## Alternativas Consideradas
-<!-- Uma descrição clara e concisa de quaisquer soluções ou funcionalidades alternativas que você considerou -->
+## Alternatives Considered
+<!-- A clear and concise description of any alternative solutions or features you've considered -->
 
-## Caso de Uso
-<!-- Descreva como você usaria esta funcionalidade e como ela beneficiaria o projeto -->
+## Use Case
+<!-- Describe how you would use this feature and how it would benefit the project -->
 
-## Exemplo de Implementação
-<!-- Se possível, forneça um exemplo de como você imagina que a implementação seria -->
+## Implementation Example
+<!-- If possible, provide an example of how you imagine the implementation would be -->
 ```typescript
-// Exemplo de código ou API
+// Example code or API
 ```
 
-## Contexto Adicional
-<!-- Adicione qualquer outro contexto ou capturas de tela sobre a solicitação de funcionalidade aqui --> 
+## Additional Context
+<!-- Add any other context or screenshots about the feature request here --> 

@@ -1,50 +1,50 @@
 ---
-name: Problema com geração de Schema
-about: Reporte um problema específico com a geração de JSON Schema
+name: Schema generation issue
+about: Report a specific issue with JSON Schema generation
 title: '[SCHEMA] '
 labels: schema, bug
 assignees: ''
 ---
 
-## Descrição do Problema
-<!-- Uma descrição clara e concisa do problema com a geração do schema -->
+## Problem Description
+<!-- A clear and concise description of the problem with schema generation -->
 
-## Tipo TypeScript
-<!-- O tipo TypeScript que está causando o problema -->
+## TypeScript Type
+<!-- The TypeScript type that is causing the issue -->
 ```typescript
-// Seu tipo TypeScript aqui
+// Your TypeScript type here
 ```
 
-## Schema Gerado
-<!-- O JSON Schema que foi gerado -->
+## Generated Schema
+<!-- The JSON Schema that was generated -->
 ```json
-// Schema gerado
+// Generated schema
 ```
 
-## Schema Esperado
-<!-- O JSON Schema que você esperava -->
+## Expected Schema
+<!-- The JSON Schema that you expected -->
 ```json
-// Schema esperado
+// Expected schema
 ```
 
-## Código de Reprodução
-<!-- Código completo para reproduzir o problema -->
+## Reproduction Code
+<!-- Complete code to reproduce the issue -->
 ```typescript
 import { toJsonSchema } from '@ts-to-json-schema/core';
 
-// Código de reprodução
+// Reproduction code
 ```
 
-## Configuração Utilizada
-<!-- Se você está usando configurações personalizadas, detalhe-as aqui -->
+## Configuration Used
+<!-- If you are using custom configurations, detail them here -->
 ```typescript
-// Configuração
+// Configuration
 ```
 
-## Ambiente
-- Versão do TS to JSON Schema: <!-- ex: 1.0.0 -->
-- Versão do TypeScript: <!-- ex: 4.9.5 -->
-- Versão do Node.js: <!-- ex: 18.15.0 -->
+## Environment
+- TS to JSON Schema version: <!-- e.g. 1.0.0 -->
+- TypeScript version: <!-- e.g. 4.9.5 -->
+- Node.js version: <!-- e.g. 18.15.0 -->
 
-## Contexto Adicional
-<!-- Adicione qualquer outro contexto sobre o problema aqui --> 
+## Additional Context
+<!-- Add any other context about the issue here --> 

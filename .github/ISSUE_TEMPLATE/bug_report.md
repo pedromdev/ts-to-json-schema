@@ -1,44 +1,44 @@
 ---
 name: Bug report
-about: Reporte um problema para nos ajudar a melhorar
+about: Report an issue to help us improve
 title: '[BUG] '
 labels: bug
 assignees: ''
 ---
 
-## Descrição do Problema
-<!-- Uma descrição clara e concisa do problema -->
+## Problem Description
+<!-- A clear and concise description of the problem -->
 
-## Passos para Reproduzir
-<!-- Passos detalhados para reproduzir o comportamento -->
+## Steps to Reproduce
+<!-- Detailed steps to reproduce the behavior -->
 1. 
 2. 
 3. 
 
-## Comportamento Esperado
-<!-- Uma descrição clara do que você esperava que acontecesse -->
+## Expected Behavior
+<!-- A clear description of what you expected to happen -->
 
-## Comportamento Atual
-<!-- O que aconteceu em vez do comportamento esperado -->
+## Actual Behavior
+<!-- What happened instead of the expected behavior -->
 
-## Código de Exemplo
-<!-- Se aplicável, adicione exemplos de código para ajudar a explicar seu problema -->
+## Example Code
+<!-- If applicable, add code examples to help explain your problem -->
 ```typescript
-// Seu código aqui
+// Your code here
 ```
 
-## Contexto Adicional
-<!-- Adicione qualquer outro contexto sobre o problema aqui -->
+## Additional Context
+<!-- Add any other context about the problem here -->
 
-## Ambiente
-- Versão do TS to JSON Schema: <!-- ex: 1.0.0 -->
-- Versão do TypeScript: <!-- ex: 4.9.5 -->
-- Versão do Node.js: <!-- ex: 18.15.0 -->
-- Sistema Operacional: <!-- ex: Windows 10, Ubuntu 22.04, macOS 13 -->
-- Navegador (se relevante): <!-- ex: Chrome 112, Firefox 110 -->
+## Environment
+- TS to JSON Schema version: <!-- e.g. 1.0.0 -->
+- TypeScript version: <!-- e.g. 4.9.5 -->
+- Node.js version: <!-- e.g. 18.15.0 -->
+- Operating System: <!-- e.g. Windows 10, Ubuntu 22.04, macOS 13 -->
+- Browser (if relevant): <!-- e.g. Chrome 112, Firefox 110 -->
 
-## Logs de Erro
-<!-- Se houver logs de erro, cole-os aqui -->
+## Error Logs
+<!-- If there are error logs, paste them here -->
 ```
-Logs de erro aqui
+Error logs here
 ``` 
