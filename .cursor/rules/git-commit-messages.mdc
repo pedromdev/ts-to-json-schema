@@ -1,0 +1,7 @@
+---
+description: Formato das mensagens de commit do Git
+globs: 
+---
+- O formato das mensagens DEVEM seguir o padrão "conventional commits"
+- As mensagens dos commits DEVEM ser em Inglês
+- Você DEVE fazer isso até no modo YOLO

@@ -1,5 +1,0 @@
----
-description: Regras para o comandos NPM
-globs: 
----
-- A publicação dos pacotes não deve acontecer por meio do comando `npm publish`. Em vez disso, devem ser usados os scripts disponíveis no [package.json](mdc:package.json) para publicação dos pacotes.

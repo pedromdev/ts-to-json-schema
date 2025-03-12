@@ -1,6 +1,0 @@
----
-description: Regras para o Git
-globs: 
----
-- As mensagens de commits devem ser em inglês e seguir o padrão conventional commits
-- As versões e releases devem ser criadas a partir dos script disponíveis no [package.json](mdc:package.json) e não usando os comandos do git diretamente
