@@ -3,9 +3,23 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'packages/**'
+      - 'tests/**'
+      - 'package.json'
+      - 'yarn.lock'
+      - 'jest.config.js'
+      - 'tsconfig.json'
   pull_request_target:
     branches:
       - main
+    paths:
+      - 'packages/**'
+      - 'tests/**'
+      - 'package.json'
+      - 'yarn.lock'
+      - 'jest.config.js'
+      - 'tsconfig.json'
 jobs:
   tests:
     name: Node.js ${{ matrix.node-version }} | TypeScript ${{ matrix.typescript-version }}
