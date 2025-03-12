@@ -17,19 +17,21 @@ hero:
 ---
 
 <script>
-// Redirect to the user's preferred language
-const userLang = navigator.language || navigator.userLanguage;
-const supportedLangs = {
-  'en': '/ts-to-json-schema/en/',
-  'pt-BR': '/ts-to-json-schema/pt-BR/',
-  'es': '/ts-to-json-schema/es/'
-};
+// Redirect to the user's preferred language only in browser environment
+if (typeof window !== 'undefined' && typeof navigator !== 'undefined') {
+  const userLang = navigator.language || navigator.userLanguage;
+  const supportedLangs = {
+    'en': '/ts-to-json-schema/en/',
+    'pt-BR': '/ts-to-json-schema/pt-BR/',
+    'es': '/ts-to-json-schema/es/'
+  };
 
-if (userLang.startsWith('pt')) {
-  window.location.href = supportedLangs['pt-BR'];
-} else if (userLang.startsWith('es')) {
-  window.location.href = supportedLangs['es'];
-} else {
-  window.location.href = supportedLangs['en'];
+  if (userLang.startsWith('pt')) {
+    window.location.href = supportedLangs['pt-BR'];
+  } else if (userLang.startsWith('es')) {
+    window.location.href = supportedLangs['es'];
+  } else {
+    window.location.href = supportedLangs['en'];
+  }
 }
 </script> 
