@@ -4,6 +4,10 @@
 
 > Get JSON Schema from TypeScript types without Generators/CLIs
 
+## Documentation
+
+Visit the [official documentation](https://pedromdev.github.io/ts-to-json-schema/) for detailed information on how to use this library.
+
 ## Prerequisites
 
 TypeScript: 4.1 or newer
