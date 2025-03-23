@@ -23,6 +23,7 @@ assignees: ''
 - [ ] English
 - [ ] Portuguese (Brazil)
 - [ ] Spanish
+- [ ] 中文 (简体)
 
 ## Screenshots
 <!-- If applicable, add screenshots to help explain the issue -->

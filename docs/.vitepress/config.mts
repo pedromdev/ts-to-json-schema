@@ -144,6 +144,41 @@ export default withMermaid(
             ]
           }
         }
+      },
+      'zh-CN': {
+        label: '中文 (简体)',
+        lang: 'zh-CN',
+        link: '/zh-CN/',
+        themeConfig: {
+          nav: [
+            { text: '指南', link: '/zh-CN/guide/getting-started' },
+            { text: 'API', link: '/zh-CN/api/core' },
+            { text: 'GitHub', link: 'https://github.com/pedromdev/ts-to-json-schema' }
+          ],
+          sidebar: {
+            '/zh-CN/guide/': [
+              {
+                text: '介绍',
+                items: [
+                  { text: '快速开始', link: '/zh-CN/guide/getting-started' },
+                  { text: '安装指南', link: '/zh-CN/guide/installation' },
+                  { text: '工作原理', link: '/zh-CN/guide/how-it-works' }
+                ]
+              }
+            ],
+            '/zh-CN/api/': [
+              {
+                text: 'API',
+                items: [
+                  { text: '核心', link: '/zh-CN/api/core' },
+                  { text: '转换器', link: '/zh-CN/api/transform' },
+                  { text: 'ESBuild 插件', link: '/zh-CN/api/esbuild-plugin' },
+                  { text: '类型', link: '/zh-CN/api/types' }
+                ]
+              }
+            ]
+          }
+        }
       }
     },
     themeConfig: {
